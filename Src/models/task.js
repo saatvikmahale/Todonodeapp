@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
-const Task =mongoose.model('Task',{
+let Task = mongoose.Schema({
     name:{
-        require:true,
+        require:[true,'name required'],
         type:String
     },
     completed:{
@@ -10,4 +10,5 @@ const Task =mongoose.model('Task',{
     }
 });
 
-module.exports =Task;
+module.exports =mongoose.model('Task',Task);
+
